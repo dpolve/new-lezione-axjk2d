@@ -22,7 +22,7 @@ import { DatiService } from './dati.service';
     TabellaRegioniComponent,
     TabellaProvinceComponent
   ],
-  bootstrap:    [ AppComponent ],
+  bootstrap: [ AppComponent ],
   providers: [DatiService]
 })
 export class AppModule { }

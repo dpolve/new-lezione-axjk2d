@@ -14,17 +14,14 @@ export class DatiService {
 
   constructor(private http: HttpClient) {
     let risultatoPromesso: Promise<Regione[]> =
-      this.http.get<Regione[]>('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-regioni-latest.json').toPromise();
+    this.http.get<Regione[]>('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-regioni-latest.json').toPromise();
 
-    console.log(risultatoPromesso);
+    console.log("questo è il risultato promesso",risultatoPromesso);
     risultatoPromesso.then(dati => {
       this.datiRegioni = dati;
-      // ....
     });
-
-    this.http.get<Provincia[]>('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-province-latest.json')    .toPromise()
+    this.http.get<Provincia[]>('https://raw.githubusercontent.com/pcm-dpc/COVID-19/master/dati-json/dpc-covid19-ita-province-latest.json').toPromise()
     .then(dati => this.datiProvince = dati);
-
   }
 
   getDatiRegioni(): Regione[] {
